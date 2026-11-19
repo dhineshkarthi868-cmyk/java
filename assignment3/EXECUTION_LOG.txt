@@ -1,0 +1,122 @@
+LOCAL BUILD CHECK
+Q1_ATMExceptionHandling/ATMExceptionHandling.java: PASS 
+Q2_UserDefinedExceptions/ExaminationPortal.java: PASS 
+Q3_TryWithResources/SalesReportGenerator.java: PASS 
+Q4_ThreadLifecycle/ScannerStations.java: PASS 
+Q5_RaceConditions/SeatBooking.java: PASS 
+Q6_DeadlockAndCommunication/WalletAndTokenCounter.java: PASS 
+Q7_FaultTolerantProcessor/ResultProcessor.java: PASS 
+
+PROGRAM OUTPUTS
+
+--- ATMExceptionHandling (PASS) ---
+\nTest 1
+Withdrawal successful. Balance: 4000.00
+Transaction attempt completed; resources/status must be reset.
+\nTest 2
+Invalid amount: Withdrawal amount must be positive
+Transaction attempt completed; resources/status must be reset.
+\nTest 3
+Transaction declined: Insufficient account balance
+Transaction attempt completed; resources/status must be reset.
+\nTest 4
+Input error: Account number must contain 6 to 12 digits
+Transaction attempt completed; resources/status must be reset.
+\nTest 5
+Invalid amount: Withdrawal amount must be positive
+Transaction attempt completed; resources/status must be reset.
+
+
+--- ExaminationPortal (PASS) ---
+Saved answer01.pdf
+Error: Could not store answer02.pdf
+Cause: Disk quota exceeded
+Submission rejected: Student is not registered for this course
+Submission rejected: Exam submission window has closed
+
+
+--- SalesReportGenerator (PASS) ---
+Report created: /home/oai/q3-data/summary.txt
+Total sales: 600
+Could not process q3-data/store-missing.txt: q3-data/store-missing.txt
+
+--- ScannerStations (PASS) ---
+Scanner-1 processed 10 scripts
+Scanner-2 processed 10 scripts
+Scanner-3 processed 10 scripts
+Scanner-4 processed 10 scripts
+Scanner-1 alive after join? false
+Scanner-2 alive after join? false
+Scanner-3 alive after join? false
+Scanner-4 alive after join? false
+Total scripts processed: 40
+
+
+--- SeatBooking (PASS) ---
+Seats sold: 10
+
+
+--- WalletAndTokenCounter (PASS) ---
+Wallet total: 2000
+Sum of tokens collected: 210 (expected 210)
+
+
+--- ResultProcessor (PASS) ---
+FAILED answer_bad.txt : CORRUPT: For input string: "not-a-score"
+FAILED answer_missing.txt : MISSING
+Files processed: 22
+Successes: 20
+Failures: 2
+Total valid score: 864
+Pool size: 4
+Elapsed time (ms): 10
+
+Q7 POOL-SIZE MEASUREMENTS (10,002 inputs incl. corrupt/missing)
+
+Pool 1
+FAILED answer_bad.txt : CORRUPT: For input string: "not-a-score"
+FAILED answer_missing.txt : MISSING
+Files processed: 10002
+Successes: 10000
+Failures: 2
+Total valid score: 499957
+Pool size: 1
+Elapsed time (ms): 193
+
+
+
+Pool 2
+FAILED answer_bad.txt : CORRUPT: For input string: "not-a-score"
+FAILED answer_missing.txt : MISSING
+Files processed: 10002
+Successes: 10000
+Failures: 2
+Total valid score: 499957
+Pool size: 2
+Elapsed time (ms): 196
+
+
+
+Pool 4
+FAILED answer_bad.txt : CORRUPT: For input string: "not-a-score"
+FAILED answer_missing.txt : MISSING
+Files processed: 10002
+Successes: 10000
+Failures: 2
+Total valid score: 499957
+Pool size: 4
+Elapsed time (ms): 126
+
+
+
+Pool 8
+FAILED answer_bad.txt : CORRUPT: For input string: "not-a-score"
+FAILED answer_missing.txt : MISSING
+Files processed: 10002
+Successes: 10000
+Failures: 2
+Total valid score: 499957
+Pool size: 8
+Elapsed time (ms): 153
+
+
