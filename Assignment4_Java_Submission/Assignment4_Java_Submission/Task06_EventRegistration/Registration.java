@@ -1,0 +1,1 @@
+public class Registration {public final int id;public final String name,regNo,event;public Registration(int i,String n,String r,String e){id=i;name=n;regNo=r;event=e;}}

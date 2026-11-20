@@ -1,0 +1,4 @@
+public class RegistrationService {
+ private final RegistrationRepository repo=new RegistrationRepository();
+ public void register(String n,String r,String e)throws Exception{if(n==null||n.trim().length()<2)throw new IllegalArgumentException("Enter a valid student name");if(r==null||!r.trim().matches("[A-Za-z0-9-]{4,20}"))throw new IllegalArgumentException("Invalid register number");if(e==null||e.equals("All"))throw new IllegalArgumentException("Choose a specific event");if(repo.exists(r.trim(),e))throw new IllegalArgumentException("Duplicate registration for this event");try{repo.insert(n.trim(),r.trim(),e);}catch(java.sql.SQLException x){if("23000".equals(x.getSQLState()))throw new IllegalArgumentException("Duplicate registration is not allowed");throw x;}}
+}

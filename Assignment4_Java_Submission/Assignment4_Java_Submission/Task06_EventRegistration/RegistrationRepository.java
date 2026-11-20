@@ -1,0 +1,7 @@
+import java.sql.*;import java.util.*;
+public class RegistrationRepository {
+ public boolean exists(String r,String e)throws SQLException{try(Connection c=DBConnection.get();PreparedStatement p=c.prepareStatement("SELECT 1 FROM event_registrations WHERE reg_no=? AND event_name=? LIMIT 1")){p.setString(1,r);p.setString(2,e);try(ResultSet x=p.executeQuery()){return x.next();}}}
+ public void insert(String n,String r,String e)throws SQLException{try(Connection c=DBConnection.get();PreparedStatement p=c.prepareStatement("INSERT INTO event_registrations(student_name,reg_no,event_name) VALUES(?,?,?)")){p.setString(1,n);p.setString(2,r);p.setString(3,e);p.executeUpdate();}}
+ public java.util.List<Registration> page(String e,int limit,int offset)throws SQLException{String sql="SELECT id,student_name,reg_no,event_name FROM event_registrations "+(e.equals("All")?"":"WHERE event_name=? ")+"ORDER BY id DESC LIMIT ? OFFSET ?";
+ try(Connection c=DBConnection.get();PreparedStatement p=c.prepareStatement(sql)){int i=1;if(!e.equals("All"))p.setString(i++,e);p.setInt(i++,limit);p.setInt(i,offset);java.util.List<Registration> out=new ArrayList<>();try(ResultSet x=p.executeQuery()){while(x.next())out.add(new Registration(x.getInt(1),x.getString(2),x.getString(3),x.getString(4)));}return out;}}
+}

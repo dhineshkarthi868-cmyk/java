@@ -1,0 +1,2 @@
+import java.sql.*;
+public final class DBConnection {private DBConnection(){} public static Connection get()throws SQLException{return DriverManager.getConnection(System.getenv().getOrDefault("DB_URL","jdbc:mysql://localhost:3306/java_assignment"),System.getenv().getOrDefault("DB_USER","root"),System.getenv().getOrDefault("DB_PASSWORD",""));}}
